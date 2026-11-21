@@ -1,7 +1,134 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant cyberpunk (&:where(.cyberpunk, .cyberpunk *));
+
+:root {
+  --surface-canvas: #f8fafc;
+  --surface-card: #ffffff;
+  --surface-subtle: #f1f5f9;
+  --surface-hover: #f8fafc;
+  --surface-skeleton: #e2e8f0;
+  --surface-skeleton-soft: #f1f5f9;
+
+  --line-subtle: #e2e8f0;
+  --line-strong: #cbd5e1;
+
+  --ink-1: #0f172a;
+  --ink-2: #475569;
+  --ink-3: #64748b;
+
+  --brand-accent: #047857;
+  --brand-accent-hover: #065f46;
+  --brand-accent-ink: #ffffff;
+  --brand-accent-soft: #ecfdf5;
+  --brand-accent-soft-border: #a7f3d0;
+  --brand-accent-soft-ink: #065f46;
+
+  --alert-bg: #fef2f2;
+  --alert-border: #fecaca;
+  --alert-ink: #7f1d1d;
+  --alert-icon: #dc2626;
+}
+
+.dark {
+  color-scheme: dark;
+  --surface-canvas: #090d16;
+  --surface-card: #111827;
+  --surface-subtle: #1e293b;
+  --surface-hover: #1a2436;
+  --surface-skeleton: #1f2937;
+  --surface-skeleton-soft: #162032;
+
+  --line-subtle: #1f2937;
+  --line-strong: #334155;
+
+  --ink-1: #f8fafc;
+  --ink-2: #cbd5e1;
+  --ink-3: #94a3b8;
+
+  --brand-accent: #059669;
+  --brand-accent-hover: #10b981;
+  --brand-accent-ink: #ffffff;
+  --brand-accent-soft: rgba(16, 185, 129, 0.14);
+  --brand-accent-soft-border: rgba(16, 185, 129, 0.35);
+  --brand-accent-soft-ink: #6ee7b7;
+
+  --alert-bg: rgba(127, 29, 29, 0.25);
+  --alert-border: rgba(248, 113, 113, 0.35);
+  --alert-ink: #fecaca;
+  --alert-icon: #f87171;
+}
+
+.cyberpunk {
+  color-scheme: dark;
+  --surface-canvas: #070510;
+  --surface-card: #0f0b1e;
+  --surface-subtle: #17122b;
+  --surface-hover: #1d1636;
+  --surface-skeleton: #251d45;
+  --surface-skeleton-soft: #191330;
+
+  --line-subtle: rgba(0, 229, 255, 0.2);
+  --line-strong: rgba(0, 229, 255, 0.42);
+
+  --ink-1: #f0f6ff;
+  --ink-2: #c5d1f0;
+  --ink-3: #94a3cc;
+
+  --brand-accent: #00e5ff;
+  --brand-accent-hover: #4df0ff;
+  --brand-accent-ink: #070510;
+  --brand-accent-soft: rgba(0, 229, 255, 0.12);
+  --brand-accent-soft-border: rgba(0, 229, 255, 0.38);
+  --brand-accent-soft-ink: #67f3ff;
+
+  --alert-bg: rgba(255, 42, 133, 0.14);
+  --alert-border: rgba(255, 42, 133, 0.45);
+  --alert-ink: #ffd1e4;
+  --alert-icon: #ff4d97;
+}
+
+@theme inline {
+  --font-sans: var(--font-plus-jakarta), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --color-canvas: var(--surface-canvas);
+  --color-surface: var(--surface-card);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-hover: var(--surface-hover);
+  --color-skeleton: var(--surface-skeleton);
+  --color-skeleton-soft: var(--surface-skeleton-soft);
+
+  --color-border-subtle: var(--line-subtle);
+  --color-border-strong: var(--line-strong);
+
+  --color-ink-primary: var(--ink-1);
+  --color-ink-secondary: var(--ink-2);
+  --color-ink-muted: var(--ink-3);
+
+  --color-accent: var(--brand-accent);
+  --color-accent-hover: var(--brand-accent-hover);
+  --color-accent-ink: var(--brand-accent-ink);
+  --color-accent-soft: var(--brand-accent-soft);
+  --color-accent-soft-border: var(--brand-accent-soft-border);
+  --color-accent-soft-ink: var(--brand-accent-soft-ink);
+
+  --color-danger-bg: var(--alert-bg);
+  --color-danger-border: var(--alert-border);
+  --color-danger-ink: var(--alert-ink);
+  --color-danger-icon: var(--alert-icon);
+}
+
 @layer base {
-  :root {
-    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .cyberpunk body {
+    background-image:
+      linear-gradient(to right, rgba(0, 229, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 42, 133, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
 }
